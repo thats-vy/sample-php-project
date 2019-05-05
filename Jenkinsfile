@@ -26,9 +26,7 @@ pipeline {
                expression {env.BRANCH_NAME == 'master'}
             }                     
             steps {
-             /*sshagent (credentials: ['test-git-tag'])                       
-                { */
-                script {
+				script {
                    
                         def tag = sh(returnStdout: true, script: "git tag | tail -1").trim()
                         println tag
@@ -43,9 +41,7 @@ pipeline {
                             git push --tags
                         """
                     
-                }
-              /*}*/
-                
+                }            
             }
         }
 	
