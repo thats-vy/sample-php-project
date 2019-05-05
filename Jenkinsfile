@@ -26,8 +26,7 @@ pipeline {
                expression {env.BRANCH_NAME == 'master'}
             }                     
             steps {
-		    eval $(ssh-agent)  
-		    sh 'ssh-add -l'
+		    
 		    
               sshagent (credentials: ['mygit-ssh-key'])                        
                 { 
